@@ -1,24 +1,24 @@
-  2017 Äê¾©¶«ÑÐ·¢Àà±à³Ì¿¼Ìâ´ð°¸¡£
-Ë¼Â·£º
-	µÚÒ»²½¾ÍÊÇÒª°ÑÊý×Ö n Ã¿Ò»Î»ÉÏµÄÊý²ð·Ö³öÀ´ÒÔ·½±ãÎÒÃÇµÄ¼ÆËã¡£
-	µÚ¶þ²½£¬·Ö³ÉÁ½¸ö²¿·ÖÊ¹µÃºÍÏàµÈÕâ¾ÍÒâÎ¶×Å£¬
-	ÎÒÃÇÐèÒª²ð·ÖµÃµ½µÄÊý×é int[] numÖÐÕÒµ½Á½¸ö Target.Ê¹µÃ Target1 = Target2.
-	µÚÈý²½£¬Ëµµ½ÕâÀï ±³°üÎÊÌâ µÄÊµÖÊÒÑ¾­±©Â¶³öÀ´ÁË¡£Òò´ËÎÒÃÇÊ¹ÓÃ DP À´½â¾ö¸ÃÎÊÌâ¡£
-	¶øÎÊÌâµÄÊµÖÊ¾ÍÊÇ£ºÔÚÒ»¸öÊý×éÄÜ·ñÖÐÕÒµ½Ò»¸öºÍÎª sum / 2 µÄ subarray.
-	ÀàËÆµÄÎÊÌâ¿ÉÒÔ³£¼û£ºLintCode µÄ Backpack VI ÎÊÌâ
-	½â´ðÒ²¿ÉÒÔÔÚÎÒµÄ github ÖÐÕÒµ½£º https://github.com/cherryljr/LintCode/blob/master/Backpack%20VI.java
+  2017 å¹´äº¬ä¸œç ”å‘ç±»ç¼–ç¨‹è€ƒé¢˜ç­”æ¡ˆã€‚
+æ€è·¯ï¼š
+	ç¬¬ä¸€æ­¥å°±æ˜¯è¦æŠŠæ•°å­— n æ¯ä¸€ä½ä¸Šçš„æ•°æ‹†åˆ†å‡ºæ¥ä»¥æ–¹ä¾¿æˆ‘ä»¬çš„è®¡ç®—ã€‚
+	ç¬¬äºŒæ­¥ï¼Œåˆ†æˆä¸¤ä¸ªéƒ¨åˆ†ä½¿å¾—å’Œç›¸ç­‰è¿™å°±æ„å‘³ç€ï¼Œ
+	æˆ‘ä»¬éœ€è¦æ‹†åˆ†å¾—åˆ°çš„æ•°ç»„ int[] numä¸­æ‰¾åˆ°ä¸¤ä¸ª Target.ä½¿å¾— Target1 = Target2.
+	ç¬¬ä¸‰æ­¥ï¼Œè¯´åˆ°è¿™é‡Œ èƒŒåŒ…é—®é¢˜ çš„å®žè´¨å·²ç»æš´éœ²å‡ºæ¥äº†ã€‚å› æ­¤æˆ‘ä»¬ä½¿ç”¨ DP æ¥è§£å†³è¯¥é—®é¢˜ã€‚
+	è€Œé—®é¢˜çš„å®žè´¨å°±æ˜¯ï¼šåœ¨ä¸€ä¸ªæ•°ç»„èƒ½å¦ä¸­æ‰¾åˆ°ä¸€ä¸ªå’Œä¸º sum / 2 çš„ subarray.
+	ç±»ä¼¼çš„é—®é¢˜å¯ä»¥å¸¸è§ï¼šLintCode çš„ Backpack VI é—®é¢˜
+	è§£ç­”ä¹Ÿå¯ä»¥åœ¨æˆ‘çš„ github ä¸­æ‰¾åˆ°ï¼š https://github.com/cherryljr/LintCode/blob/master/Backpack%20VI.java
 	
 /*
-ÌâÄ¿ÃèÊö£ºÉñÆæÊý£¨½öÆ¾¼ÇÒäÃèÊö£¬Ô­Ìâ·Å³öºó»á²¹ÉÏ£©
-ÉñÆæÊýµÄ¶¨ÒåÊÇ£¬½«Ò»¸öÊýµÄ¸÷¸öÎ»ÉÏµÄÊýÈ¡³öÀ´¡£·Ö³ÉÁ½¸ö²¿·Ö¡£
-µ±ÕâÁ½¸ö²¿·ÖµÄÊéÖ®ºÍÏàµÈÊ±£¬ÔòÒâÎ¶×Å¸ÃÊýÊÇÒ»¸öÉñÆæÊý¡£
-±ÈÈç£º123,¿ÉÒÔ·Ö³É {1, 2} ºÍ {3}. 1+2=3.¹Ê 123 ÊÇÉñÆæÊý
-ÒªÇó£º
-ÊäÈëÁ½¸öÊý l ºÍ r¡£ÒªÇóÄÜ¹»ÕÒ³öÇø¼ä [l, r] ÖÐËùÓÐµÄÉñÆæÊýµÄÊä³ö¡£
+é¢˜ç›®æè¿°ï¼šç¥žå¥‡æ•°ï¼ˆä»…å‡­è®°å¿†æè¿°ï¼ŒåŽŸé¢˜æ”¾å‡ºåŽä¼šè¡¥ä¸Šï¼‰
+ç¥žå¥‡æ•°çš„å®šä¹‰æ˜¯ï¼Œå°†ä¸€ä¸ªæ•°çš„å„ä¸ªä½ä¸Šçš„æ•°å–å‡ºæ¥ã€‚åˆ†æˆä¸¤ä¸ªéƒ¨åˆ†ã€‚
+å½“è¿™ä¸¤ä¸ªéƒ¨åˆ†çš„ä¹¦ä¹‹å’Œç›¸ç­‰æ—¶ï¼Œåˆ™æ„å‘³ç€è¯¥æ•°æ˜¯ä¸€ä¸ªç¥žå¥‡æ•°ã€‚
+æ¯”å¦‚ï¼š123,å¯ä»¥åˆ†æˆ {1, 2} å’Œ {3}. 1+2=3.æ•… 123 æ˜¯ç¥žå¥‡æ•°
+è¦æ±‚ï¼š
+è¾“å…¥ä¸¤ä¸ªæ•° l å’Œ rã€‚è¦æ±‚èƒ½å¤Ÿæ‰¾å‡ºåŒºé—´ [l, r] ä¸­æ‰€æœ‰çš„ç¥žå¥‡æ•°çš„è¾“å‡ºã€‚
 
-²âÊÔ°¸Àý£º
+æµ‹è¯•æ¡ˆä¾‹ï¼š
 1 50
-Êä³ö½â¹û£º
+è¾“å‡ºè§£æžœï¼š
 4
 */
 
@@ -28,20 +28,20 @@ import java.io.*;
 public class LintCode {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int l = sc.nextInt(); // ÊäÈë l
-        int r = sc.nextInt(); // ÊäÈë r
-        int count = 0;				// ¼ÆËãÓÐ¼¸¸öÊý
+        int l = sc.nextInt(); // è¾“å…¥ l
+        int r = sc.nextInt(); // è¾“å…¥ r
+        int count = 0;				// è®¡ç®—æœ‰å‡ ä¸ªæ•°
         
-        // ±éÀú l ~ r ±ÕÇø¼ä
+        // éåŽ† l ~ r é—­åŒºé—´
         for (int i = l; i <= r; i++) {
-        	// ½«Êý×Ö i ×ª»»Îª int[] 
+        	// å°†æ•°å­— i è½¬æ¢ä¸º int[] 
             String s = String.valueOf(i);
             char[] ch = s.toCharArray();
             int[] nums = new int[ch.length];
             for (int j = 0; j < nums.length; j++) {
                 nums[j] = ch[j] - '0';
             }
-            // ÅÐ¶ÏÊÇ·ñÎªÉñÆæÊý×Ö
+            // åˆ¤æ–­æ˜¯å¦ä¸ºç¥žå¥‡æ•°å­—
             if (isMagicalNumber(nums)) {
                 count++;
             }
@@ -49,7 +49,7 @@ public class LintCode {
         System.out.println(count);
     }
     
-    // ÅÐ¶Ïº¯Êý
+    // åˆ¤æ–­å‡½æ•°
     public static boolean isMagicalNumber(int[] nums) {
         int len = nums.length;
         int sum = 0;
@@ -62,7 +62,7 @@ public class LintCode {
         sum /= 2;
         
         // State & Initialize
-        boolean[] dp = new boolean[sum];
+        boolean[] dp = new boolean[sum + 1];
         for (int i = 0; i <= sum; i++) {
             dp[i] = false;
         }
