@@ -1,31 +1,31 @@
-¸ÃÌâ¿¼²ìµãÏà¶ÔÇåÎú¡£
-	1. ÈçºÎ¼ÆËãÒ»¸öÊýµÄ k ½øÖÆ 
-	2. ÇóÁ½¸öÊýµÄ×î´ó¹«Ô¼Êý GCD 
+è¯¥é¢˜è€ƒå¯Ÿç‚¹ç›¸å¯¹æ¸…æ™°ã€‚
+	1. å¦‚ä½•è®¡ç®—ä¸€ä¸ªæ•°çš„ k è¿›åˆ¶ 
+	2. æ±‚ä¸¤ä¸ªæ•°çš„æœ€å¤§å…¬çº¦æ•° GCD 
 
-×ö·¨:
-	Í¨¹ý·½·¨ averageA ¿ÉÒÔÇó³öÒ»¸öÊý radix ½øÖÆµÄÃ¿Ò»Î»ÊýÉÏµÄºÍ£¬
-	È»ºóÍ¨¹ý calculate ·½·¨ÇóµÃ½« 2~A-1 ½øÖÆ±í´ïµÄ¸÷¸öÎ»ÊýÖ®ºÍÈ«²¿¼ÓÆðÀ´µÄÖµ
-	×îºóÇó³ö sum ºÍ A-2 µÄ×î´ó¹«Ô¼Êý£¬³ýÒÔ GCD£¬´Ó¶øµÃµ½×îºó½á¹û¡£
+åšæ³•:
+	é€šè¿‡æ–¹æ³• averageA å¯ä»¥æ±‚å‡ºä¸€ä¸ªæ•° radix è¿›åˆ¶çš„æ¯ä¸€ä½æ•°ä¸Šçš„å’Œï¼Œ
+	ç„¶åŽé€šè¿‡ calculate æ–¹æ³•æ±‚å¾—å°† 2~A-1 è¿›åˆ¶è¡¨è¾¾çš„å„ä¸ªä½æ•°ä¹‹å’Œå…¨éƒ¨åŠ èµ·æ¥çš„å€¼
+	æœ€åŽæ±‚å‡º sum å’Œ A-2 çš„æœ€å¤§å…¬çº¦æ•°ï¼Œé™¤ä»¥ GCDï¼Œä»Žè€Œå¾—åˆ°æœ€åŽç»“æžœã€‚
 
 /*
-¾¡¹ÜÊÇÒ»¸öCS×¨ÒµµÄÑ§Éú£¬Ð¡BµÄÊýÑ§»ù´¡ºÜºÃ²¢¶ÔÊýÖµ¼ÆËãÓÐ×ÅÌØ±ðµÄÐËÈ¤£¬Ï²»¶ÓÃ¼ÆËã»ú³ÌÐòÀ´½â¾öÊýÑ§ÎÊÌâ£¬
-ÏÖÔÚ£¬ËýÕýÔÚÍæÒ»¸öÊýÖµ±ä»»µÄÓÎÏ·¡£Ëý·¢ÏÖ¼ÆËã»úÖÐ¾­³£ÓÃ²»Í¬µÄ½øÖÆ±íÊ¾Ò»¸öÊý£¬
-ÈçÊ®½øÖÆÊý123±í´ïÎª16½øÖÆÊ±Ö»°üº¬Á½Î»Êý7¡¢11£¨B£©£¬ÓÃ°Ë½øÖÆ±íÊ¾ÎªÈýÎ»Êý1¡¢7¡¢3£¬
-°´²»Í¬½øÖÆ±í´ïÊ±£¬¸÷¸öÎ»ÊýµÄºÍÒ²²»Í¬£¬ÈçÉÏÊöÀý×ÓÖÐÊ®Áù½øÖÆºÍ°Ë½øÖÆÖÐ¸÷Î»ÊýµÄºÍ·Ö±ðÊÇ18ºÍ11,¡£
-Ð¡B¸ÐÐËÈ¤µÄÊÇ£¬Ò»¸öÊýAÈç¹û°´2µ½A-1½øÖÆ±í´ïÊ±£¬¸÷¸öÎ»ÊýÖ®ºÍµÄ¾ùÖµÊÇ¶àÉÙ£¿ËýÏ£ÍûÄãÄÜ°ïËý½â¾öÕâ¸öÎÊÌâ£¿ 
-ËùÓÐµÄ¼ÆËã¾ù»ùÓÚÊ®½øÖÆ½øÐÐ£¬½á¹ûÒ²ÓÃÊ®½øÖÆ±íÊ¾Îª²»¿ÉÔ¼¼òµÄ·ÖÊýÐÎÊ½¡£ 
+å°½ç®¡æ˜¯ä¸€ä¸ªCSä¸“ä¸šçš„å­¦ç”Ÿï¼Œå°Bçš„æ•°å­¦åŸºç¡€å¾ˆå¥½å¹¶å¯¹æ•°å€¼è®¡ç®—æœ‰ç€ç‰¹åˆ«çš„å…´è¶£ï¼Œå–œæ¬¢ç”¨è®¡ç®—æœºç¨‹åºæ¥è§£å†³æ•°å­¦é—®é¢˜ï¼Œ
+çŽ°åœ¨ï¼Œå¥¹æ­£åœ¨çŽ©ä¸€ä¸ªæ•°å€¼å˜æ¢çš„æ¸¸æˆã€‚å¥¹å‘çŽ°è®¡ç®—æœºä¸­ç»å¸¸ç”¨ä¸åŒçš„è¿›åˆ¶è¡¨ç¤ºä¸€ä¸ªæ•°ï¼Œ
+å¦‚åè¿›åˆ¶æ•°123è¡¨è¾¾ä¸º16è¿›åˆ¶æ—¶åªåŒ…å«ä¸¤ä½æ•°7ã€11ï¼ˆBï¼‰ï¼Œç”¨å…«è¿›åˆ¶è¡¨ç¤ºä¸ºä¸‰ä½æ•°1ã€7ã€3ï¼Œ
+æŒ‰ä¸åŒè¿›åˆ¶è¡¨è¾¾æ—¶ï¼Œå„ä¸ªä½æ•°çš„å’Œä¹Ÿä¸åŒï¼Œå¦‚ä¸Šè¿°ä¾‹å­ä¸­åå…­è¿›åˆ¶å’Œå…«è¿›åˆ¶ä¸­å„ä½æ•°çš„å’Œåˆ†åˆ«æ˜¯18å’Œ11,ã€‚
+å°Bæ„Ÿå…´è¶£çš„æ˜¯ï¼Œä¸€ä¸ªæ•°Aå¦‚æžœæŒ‰2åˆ°A-1è¿›åˆ¶è¡¨è¾¾æ—¶ï¼Œå„ä¸ªä½æ•°ä¹‹å’Œçš„å‡å€¼æ˜¯å¤šå°‘ï¼Ÿå¥¹å¸Œæœ›ä½ èƒ½å¸®å¥¹è§£å†³è¿™ä¸ªé—®é¢˜ï¼Ÿ 
+æ‰€æœ‰çš„è®¡ç®—å‡åŸºäºŽåè¿›åˆ¶è¿›è¡Œï¼Œç»“æžœä¹Ÿç”¨åè¿›åˆ¶è¡¨ç¤ºä¸ºä¸å¯çº¦ç®€çš„åˆ†æ•°å½¢å¼ã€‚ 
 
-ÊäÈëÃèÊö:
-ÊäÈëÖÐÓÐ¶à×é²âÊÔÊý¾Ý£¬Ã¿×é²âÊÔÊý¾ÝÎªÒ»¸öÕûÊýA(1 ¡Ü A ¡Ü 5000).
+è¾“å…¥æè¿°:
+è¾“å…¥ä¸­æœ‰å¤šç»„æµ‹è¯•æ•°æ®ï¼Œæ¯ç»„æµ‹è¯•æ•°æ®ä¸ºä¸€ä¸ªæ•´æ•°A(1 â‰¤ A â‰¤ 5000).
 
-Êä³öÃèÊö:
-¶ÔÃ¿×é²âÊÔÊý¾Ý£¬ÔÚµ¥¶ÀµÄÐÐÖÐÒÔX/YµÄÐÎÊ½Êä³ö½á¹û¡£
+è¾“å‡ºæè¿°:
+å¯¹æ¯ç»„æµ‹è¯•æ•°æ®ï¼Œåœ¨å•ç‹¬çš„è¡Œä¸­ä»¥X/Yçš„å½¢å¼è¾“å‡ºç»“æžœã€‚
 
-ÊäÈëÀý×Ó1:
+è¾“å…¥ä¾‹å­1:
 5
 3
 
-Êä³öÀý×Ó1:
+è¾“å‡ºä¾‹å­1:
 7/3
 2/1
 */
@@ -35,15 +35,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc  = new Scanner(System.in);
-        while (sc.hasNext()) {
+        while (sc.hasNext()) { 
             int num = sc.nextInt();
             int sum = calculate(num);
-            // ·Ö×Ó·ÖÄ¸Í¬Ê±³ýÒÔ×î´ó¹«Ô¼Êý£¬ »¯³É×î¼òÐÎÊ½
+            // åˆ†å­åˆ†æ¯åŒæ—¶é™¤ä»¥æœ€å¤§å…¬çº¦æ•°ï¼Œ åŒ–æˆæœ€ç®€å½¢å¼
             System.out.printf("%d/%d\n", sum / GCD(sum, num-2), (num-2) / GCD(sum, num-2));
         }
 
     }
-    // Çó½âÁ½¸öÊýµÄ×î´ó¹«Ô¼Êý
+    // æ±‚è§£ä¸¤ä¸ªæ•°çš„æœ€å¤§å…¬çº¦æ•°
     public static int GCD(int a, int b) {
         int temp = 0;
         if (a < b) {
@@ -59,7 +59,7 @@ public class Main {
         }
     }
     
-    // ¶ÔÃ¿¸öÊýµÄ 2 µ½ n-1 ½øÖÆµÄÎ»Êý½øÐÐÇóºÍ
+    // å¯¹æ¯ä¸ªæ•°çš„ 2 åˆ° n-1 è¿›åˆ¶çš„ä½æ•°è¿›è¡Œæ±‚å’Œ
     public static int calculate(int n) {
         int radix = n - 1;
         int sum = 0;
@@ -71,7 +71,7 @@ public class Main {
         return sum;
     }
     
-    //¶ÔÒ»¸öÊýµÄÄ³Ò»½øÖÆµÄÊý×Ö½øÐÐÇóºÍ
+    //å¯¹ä¸€ä¸ªæ•°çš„æŸä¸€è¿›åˆ¶çš„æ•°å­—è¿›è¡Œæ±‚å’Œ
     public static int averageA(int radix, int n) {
         int sumOfN = 0;
         while (n > 0) {
