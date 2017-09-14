@@ -25,7 +25,7 @@ public class Main {
 	}
 	
 	private static int BinarySearch(int[] nums) {
-		// 规定当数组中只有一个数时，不存在局部最小值
+        // 规定当数组中只有一个数时，不存在局部最小值
 		if (nums == null || nums.length <= 1) {
 			return 0;
 		}
