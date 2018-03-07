@@ -30,7 +30,7 @@ abracadabracadabra
  * 然后补上 s.subString(endNext) 就能得到答案了。
  *
  * KMP Template:
- *
+ * https://github.com/cherryljr/LintCode/blob/master/KMP%20Template.java
  */
 public class Solution {
 
