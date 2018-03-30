@@ -30,6 +30,7 @@ OJ地址：https://hihocoder.com/contest/hiho169/problem/1
  * 然后再计算即可。
  * 
  * 对于将 中序表达式 转换成 后缀表达式 可以参考：
+ * https://github.com/cherryljr/LintCode/blob/master/Convert%20Expression%20to%20Reverse%20Polish%20Notation.java
  *
  * 对于后缀表达式的 计算 可以参考：
  * https://github.com/cherryljr/LintCode/blob/master/Evaluate%20Reverse%20Polish%20Notation.java
