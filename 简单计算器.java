@@ -206,7 +206,6 @@ public class Main {
                 }
                 ops.pop();
             }
-
             // Current token is an operator.
             else {
                 // While top of 'ops' has same or greater precedence to current
