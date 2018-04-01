@@ -48,6 +48,16 @@
  *  但 mid 有可能是答案，没关系，我们让 left 来等于 mid 就行，right只管缩小范围)，而且，这样可以保证一定有解；
  *  如果 nums[mid] 不满足条件，令 left = mid + 1, 由于 [left, mid] 是 一定不满足条件 的，故让 left 一步步靠近 right 来找到满足条件的答案。
  *  （注：条件指的是 我们想要寻找的上/下界 存在于 起点 和 mid 组成的那一段范围中）
+ *
+ * 注意：
+ * 二分法的 下界/上界 查找还有另外一个用处：
+ * 当数组中不存在 target 的时候，
+ *  求下界的方法 lowerBound() 返回的是：第一个 大于 target 的数
+ *  求上界的方法 upperBound() 返回的是：最后一个 小于 target 的数
+ *  至于为什么，大家在理解了以上述过程后，很容易就明白了，这里就不加赘述了。
+ * 应用例题：
+ * （求上界）网易_牛牛的闹钟：https://github.com/cherryljr/NowCoder/blob/master/%E7%BD%91%E6%98%93_%E7%89%9B%E7%89%9B%E7%9A%84%E9%97%B9%E9%92%9F.java
+ * （求下界）小Ho的防护盾：https://github.com/cherryljr/NowCoder/blob/master/%E5%B0%8FHo%E7%9A%84%E9%98%B2%E6%8A%A4%E7%9B%BE.java
  */
 class Solution {
     public int GetNumberOfK(int [] array , int k) {
