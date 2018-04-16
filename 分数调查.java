@@ -42,15 +42,21 @@
  * 一旦两个学生通过 消息M 建立起连接，我们就可以通过这个消息来判断二者的分差。
  * 并且该信息是具有 传递性 的，即得知了 A,B 和 B,C 的关系后，我们可以推出 A,C 的关系。
  * 即相当于 A,B,C 形成一个连通区，我们可以得知连通区内任意两点之间的分差。
- * 
+ *
  * 因此这道题目是一个 带权并查集 的考察。
  * 当两位学生在同一个连通区内（具有同一个 parent）时，他们是可以被比较的，否则无法被比较。
- * 规定：权值数组 rank[i] 表示：学生 ith 低于 parent 学生分数的分值大小
- * 因此，学生a 比 学生b 高的分值为：rank[b]-ran[a]
- * Union(a, b) 的时候，b归入为a的子节点。
+ * 权值数组 rank[i] 定义为：学生 ith 低于 parent 学生分数的分值大小，即 rank[i] = iParent - i
+ * Union(a, b) 的时候，b所属的区域 成为 a所属区域 的子节点，同时我们也要计算出 bFather 的 rank 值。
  *      parent[bFather] = aFather;
  *      rank[bFather] = rank[a] - rank[b] + diff;
- * 以上操作如果有不清楚的话，画个图就清楚了。
+ * 关于 rank[bFather] 的计算我们可以做如下分析：
+ *  rank[a] = aFather - a;  rank[b] = bFather - b;  diff = a - b
+ *  而我们要求的 rank[bFather] = aFather - bFather
+ *  那么 rank[a] - rank[b] = aFather - bFather - a + b;
+ *  经过等式变换后可得：rank[bFather] = aFather - bFather = rank[a] - rank[b] + diff
+ * 
+ * 类似问题：
+ * https://github.com/cherryljr/LintCode/blob/master/Deliver%20The%20Message.java
  */
 
 import java.util.*;
