@@ -29,8 +29,8 @@ OJ地址：https://www.nowcoder.com/questionTerminal/185dc37412de446bbfff6bd21e4
  * 因此希望大家在弄清楚 动态规划 以及 递推过程，建立好 空间感 后，再回来考虑这个问题。
  * 到时候我相信问题会迎刃而解。
  *
- * 01背包的典型例题：
- * https://github.com/cherryljr/LintCode/blob/master/Backpack%20II.java
+ * 本题所对应的 01背包问题：数组和为sum的方法数：
+ * https://github.com/cherryljr/NowCoder/blob/master/%E6%95%B0%E7%BB%84%E5%92%8C%E4%B8%BAsum%E7%9A%84%E6%96%B9%E6%B3%95%E6%95%B0.java
  */
 public class Exchange {
 
