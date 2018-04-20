@@ -122,8 +122,12 @@ public class Main {
 
         // Function
         for (int i = 1; i < n; i++) {
+        	// 注意与 完全背包问题 区分，j是从 sum 向 0 进行遍历的
             for (int j = sum; j >= 0; j--) {
+            	// gurantee the size is big enough to put arr[i-1] into the back.
                 if (j >= arr[i]) {
+                	// 此处的 dp[j] 相当于 dp[i-1][j]
+                    // dp[j-arr[i-1]] 相当于 dp[i-1][j-arr[i-1]]
                     dp[j] += dp[j - arr[i]];
                 }
             }
