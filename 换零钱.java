@@ -31,6 +31,9 @@ OJ地址：https://www.nowcoder.com/questionTerminal/185dc37412de446bbfff6bd21e4
  *
  * 本题所对应的 01背包问题：数组和为sum的方法数：
  * https://github.com/cherryljr/NowCoder/blob/master/%E6%95%B0%E7%BB%84%E5%92%8C%E4%B8%BAsum%E7%9A%84%E6%96%B9%E6%B3%95%E6%95%B0.java
+ * 延伸题目：
+ * 如果就算是币值相同，取钱的向后顺序不同也算是两种方案的话，该如何解决呢？（比如 [1, 1, 2] 和 [2, 1, 1]）
+ * https://github.com/cherryljr/LeetCode/blob/master/Combination%20Sum%20IV.java
  */
 public class Exchange {
 
