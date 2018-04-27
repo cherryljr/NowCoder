@@ -26,6 +26,7 @@ min(arr[i..j])表示子数组 arr[i..j] 中的最小值.
  *  我们需要求得一个子数组(窗口)内的 最大值 和 最小值。
  *  因此我们可以借助两个 双端队列 来对时间复杂度进行优化。
  *  实现方法同 Sliding Window Maximum：
+ *  https://github.com/cherryljr/LeetCode/blob/master/Sliding%20Window%20Maximum.java
  *  具体实现：
  *  利用 left, right 表示窗口的左右边界
  *  一开始 right 向右扩，直到窗口内的子数组不达标为止。
