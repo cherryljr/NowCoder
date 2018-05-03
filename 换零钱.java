@@ -322,7 +322,7 @@ public class Exchange {
         }
         // Function
         for (int i = 1; i < arr.length; i++) {
-        	// Gurantee the size is big enough to put arr[i] into the backpack.
+        	// Guarantee the size is big enough to put arr[i] into the backpack.
             for (int j = arr[i]; j <= target; j++) {
                 dp[j] += dp[j - arr[i]];
             }
