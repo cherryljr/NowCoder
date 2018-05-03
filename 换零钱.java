@@ -322,8 +322,9 @@ public class Exchange {
         }
         // Function
         for (int i = 1; i < arr.length; i++) {
-            for (int j = 0; j <= target; j++) {
-                dp[j] += j - arr[i] >= 0 ? dp[j - arr[i]] : 0;
+        	// Gurantee the size is big enough to put arr[i] into the backpack.
+            for (int j = arr[i]; j <= target; j++) {
+                dp[j] += dp[j - arr[i]];
             }
         }
         return dp[target];
