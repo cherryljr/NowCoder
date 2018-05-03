@@ -123,7 +123,7 @@ public class Main {
         // Function
         for (int i = 1; i < n; i++) {
             // 注意与 完全背包问题 区分，j是从 sum 向 0 进行遍历的
-            // Gurantee the size is big enough to put arr[i] into the backpack.
+            // Guarantee the size is big enough to put arr[i] into the backpack.
             for (int j = sum; j >= arr[i]; j--) {
                 // 此处的 dp[j] 相当于 dp[i-1][j]
                 // dp[j-arr[i]] 相当于 dp[i-1][j-arr[i]]
