@@ -28,7 +28,7 @@ OJ地址：https://www.nowcoder.com/questionTerminal/e7e0230b12de4239a7f547a01d7
  */
 
 /**
- * Approach: Backpack (DP)
+ * Approach: Multiple Backpack
  */
 
 import java.io.BufferedInputStream;
@@ -64,3 +64,4 @@ public class Main {
         System.out.println(dp[n - 1][m]);
     }
 }
+
