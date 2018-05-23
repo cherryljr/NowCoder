@@ -32,7 +32,7 @@ public class CoinsMin {
     /**
      * 完全背包问题：最原始版本的动态规划
      * 已经进行了 算法时间 复杂度上的优化，体现在：
-     * left = dp[i][j - arr[i]] + 1;
+     * dp[i][j - arr[i]] + 1 = dp[i-1][j - x*arr[i]] + 1;
      */
     public static int minCoins1(int[] arr, int aim) {
         if (arr == null || arr.length == 0 || aim < 0) {
@@ -49,18 +49,17 @@ public class CoinsMin {
                 dp[0][j] = dp[0][j - arr[0]] + 1;
             }
         }
+
         // Function
-        int left;
         for (int i = 1; i < n; i++) {
             for (int j = 1; j <= aim; j++) {
-                left = Integer.MAX_VALUE;
                 if (j - arr[i] >= 0 && dp[i][j - arr[i]] != Integer.MAX_VALUE) {
-                    // left 相当于 dp[i-1][j - x*arr[i]] 之和 + 1
-                    left = dp[i][j - arr[i]] + 1;
+                    // dp[i][j - arr[i]] + 1 相当于 dp[i-1][j - x*arr[i]] 之和 + 1
+                    dp[i][j] = Math.min(dp[i][j - arr[i]] + 1, dp[i - 1][j]);
                 }
-                dp[i][j] = Math.min(left, dp[i - 1][j]);
             }
         }
+
         // Answer
         return dp[n - 1][aim] != Integer.MAX_VALUE ? dp[n - 1][aim] : -1;
     }
@@ -82,19 +81,18 @@ public class CoinsMin {
                 dp[j] = dp[j - arr[0]] + 1;
             }
         }
+
         // Function
-        int left;
         for (int i = 1; i < n; i++) {
             for (int j = 1; j <= aim; j++) {
-                left = Integer.MAX_VALUE;
                 if (j - arr[i] >= 0 && dp[j - arr[i]] != Integer.MAX_VALUE) {
-                    // left 相当于 dp[i-1][j - x*arr[i]] 之和 + 1
+                    // dp[j - arr[i]] + 1 相当于 dp[i-1][j - x*arr[i]] 之和 + 1
                     // 因此也等于 dp[i][j - arr[i]] + 1
-                    left = dp[j - arr[i]] + 1;
+                    dp[j] = Math.min(dp[j - arr[i]] + 1, dp[j]);
                 }
-                dp[j] = Math.min(left, dp[j]);
             }
         }
+
         // Answer
         return dp[aim] != Integer.MAX_VALUE ? dp[aim] : -1;
     }
@@ -117,16 +115,14 @@ public class CoinsMin {
         if (arr[0] <= aim) {
             dp[0][arr[0]] = 1;
         }
+
         // Function
-        int leftup = 0;
         for (int i = 1; i < n; i++) {
             for (int j = 1; j <= aim; j++) {
-                leftup = Integer.MAX_VALUE;
+                dp[i][j] = dp[i - 1][j];
                 if (j - arr[i] >= 0 && dp[i - 1][j - arr[i]] != Integer.MAX_VALUE) {
-                    // left 相当于 dp[i-1][j - arr[i]] （这就是与 完全背包 问题的区别点）
-                    leftup = dp[i - 1][j - arr[i]] + 1;
+                    dp[i][j] = Math.min(dp[i - 1][j - arr[i]] + 1, dp[i - 1][j]);
                 }
-                dp[i][j] = Math.min(leftup, dp[i - 1][j]);
             }
         }
         // Answer
@@ -142,31 +138,28 @@ public class CoinsMin {
             return -1;
         }
         int n = arr.length;
-        int max = Integer.MAX_VALUE;
         // Initialize
         int[] dp = new int[aim + 1];
         for (int j = 1; j <= aim; j++) {
-            dp[j] = max;
+            dp[j] = Integer.MAX_VALUE;
         }
         if (arr[0] <= aim) {
             dp[arr[0]] = 1;
         }
+
         // Function
-        int leftup = 0;
         for (int i = 1; i < n; i++) {
             // 注意这 j 是按照 aim 到 0 的顺序遍历的
             for (int j = aim; j > 0; j--) {
-                leftup = max;
-                if (j - arr[i] >= 0 && dp[j - arr[i]] != max) {
-                    // left 相当于 dp[i-1][j - arr[i]] （这就是与 完全背包 问题的区别点）
+                if (j - arr[i] >= 0 && dp[j - arr[i]] != Integer.MAX_VALUE) {
+                    // dp[j - arr[i]] 相当于 dp[i-1][j - arr[i]] （这就是与 完全背包 问题的区别点）
                     // 因此这解释了为什么这里 j 是按照 aim 到 0 的顺序遍历
-                    leftup = dp[j - arr[i]] + 1;
+                    dp[j] = Math.min(dp[j - arr[i]] + 1, dp[j]);
                 }
-                dp[j] = Math.min(leftup, dp[j]);
             }
         }
         // Answer
-        return dp[aim] != max ? dp[aim] : -1;
+        return dp[aim] != Integer.MAX_VALUE ? dp[aim] : -1;
     }
 
     public static void main(String[] args) {
@@ -179,6 +172,5 @@ public class CoinsMin {
         int aim2 = 223;
         System.out.println(minCoins3(arr2, aim2));
         System.out.println(minCoins4(arr2, aim2));
-
     }
 }
