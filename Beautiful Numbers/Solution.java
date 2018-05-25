@@ -37,6 +37,9 @@ Note that we could also write 13 as 11 in base 12, but neither of those represen
 O地址：https://code.google.com/codejam/contest/5264487/dashboard#s=p1
  */
 
+// 关于分析数据量来推测 时间复杂度 以及 可能使用的算法：
+// https://www.youtube.com/watch?v=eG99FDBeuJo&list=PLLuMmzMTgVK5Hy1qcWYZcd7wVQQ1v0AjX&index=2
+
 /**
  * 这里是为了更像具体地说明如何 估算运行时间，才写了 getResultSmall 方法。
  * 实际过程中，大家只需要一步到位直接写出 getResultBig 即可。
