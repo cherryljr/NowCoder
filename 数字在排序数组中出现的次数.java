@@ -57,6 +57,7 @@
  *  至于为什么，大家在理解了以上述过程后，很容易就明白了，这里就不加赘述了。
  * 应用例题：
  * （求上界）网易_牛牛的闹钟：https://github.com/cherryljr/NowCoder/blob/master/%E7%BD%91%E6%98%93_%E7%89%9B%E7%89%9B%E7%9A%84%E9%97%B9%E9%92%9F.java
+ *  (求上界) Sqrt(x)：https://github.com/cherryljr/LintCode/blob/master/Sqrt(x).java
  * （求下界）小Ho的防护盾：https://github.com/cherryljr/NowCoder/blob/master/%E5%B0%8FHo%E7%9A%84%E9%98%B2%E6%8A%A4%E7%9B%BE.java
  */
 class Solution {
