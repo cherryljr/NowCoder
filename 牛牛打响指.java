@@ -19,7 +19,7 @@
  */
 
 /**
- * Approach 1: Simulation
+ * Approach: Simulation
  */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
