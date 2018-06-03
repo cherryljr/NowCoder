@@ -57,7 +57,15 @@
  *  至于为什么，大家在理解了以上述过程后，很容易就明白了，这里就不加赘述了。
  * 应用例题：
  * （求上界）网易_牛牛的闹钟：https://github.com/cherryljr/NowCoder/blob/master/%E7%BD%91%E6%98%93_%E7%89%9B%E7%89%9B%E7%9A%84%E9%97%B9%E9%92%9F.java
+ *  (求上界) Sqrt(x)：https://github.com/cherryljr/LintCode/blob/master/Sqrt(x).java
  * （求下界）小Ho的防护盾：https://github.com/cherryljr/NowCoder/blob/master/%E5%B0%8FHo%E7%9A%84%E9%98%B2%E6%8A%A4%E7%9B%BE.java
+ *
+ * 这里讨论的都是对 整数 进行 BinarySearch 的情况，但是我们也可能遇到需要对 分数 进行二分查找的情况
+ * 入如果是对分数的话，我们就不需要进行 +1 -1 操作了，因为它不存在 Boundary 的问题。
+ * 我们需要考虑的只是其 left 和 right 之间差值的精度问题。（通常 1e-6 就够用了）
+ * 应用实例可以参考：
+ * K-th Smallest Prime Fraction:
+ *  https://github.com/cherryljr/LeetCode/blob/master/K-th%20Smallest%20Prime%20Fraction.java
  */
 class Solution {
     public int GetNumberOfK(int [] array , int k) {
