@@ -25,17 +25,17 @@
  *
  * 本题要求每个数只能取一次，即相当于一种面值的货币只能取一张，然后组成 sum.
  * State:
- * dp[i][j] 表示：用前 i 个数组成 j 的方案数。
+ *  dp[i][j] 表示：用前 i 个数组成 j 的方案数。
  * Function:
  * 经过简单分析就可以得出：
- * dp[i][j] = dp[i - 1][j] (j < arr[i]) （因为 j < arr[i],因此无法取得当前数）
- * dp[i][j] = dp[i - 1][j] + dp[i - 1][j - arr[i]] (j >= arr[i])
+ *  dp[i][j] = dp[i - 1][j] (j < arr[i]) （因为 j < arr[i],因此无法取得当前数）
+ *  dp[i][j] += dp[i - 1][j - arr[i]] (j >= arr[i])
  * Initialize:
- * 初始化矩阵的第一行和第一列
+ *  初始化矩阵的第一行和第一列
  * Answer:
- * 最终需要的结果为：
- * dp[n - 1][sum]
- * 注意：int可能会爆，要开long数组
+ *  最终需要的结果为：
+ *  dp[n - 1][sum]
+ *  注意：int可能会爆，要开long数组
  *
  * 关于初始化问题，当遇到给定一个 target，
  * 要求只能是 正好达到 target 的话，我们可以将 dp[0][0] 初始化为 需要的值，其他全部初始化为 Integer.MAX_VALUE/MIN_VALUE;
